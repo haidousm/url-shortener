@@ -181,7 +181,7 @@ header {
     display: flex;
 }
 label[for="url-input"] {
-    width: 85%;
+    width: 80%;
 }
 .url-input {
     border: none;
@@ -203,7 +203,7 @@ label[for="url-input"] {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
         monospace;
     border-radius: 3px;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 .shorten-btn:hover {
     background: none;
