@@ -165,7 +165,7 @@ header {
     border: 1px solid rgb(71, 71, 71);
     border-radius: 5px;
     color: white;
-    overflow: auto;
+    overflow: hidden;
     font-size: 14px;
     box-shadow: 0 0 12px #000;
     padding: 10px;
@@ -221,4 +221,27 @@ label[for="url-input"] {
 .is-link {
     text-decoration: underline;
     cursor: pointer;
+}
+
+@media (max-width: 750px) {
+    .input-container {
+        flex-direction: column;
+    }
+    .shorten-btn {
+        margin-top: 20px;
+        width: 200px;
+        align-self: center;
+        margin-right: 10px;
+    }
+
+    .content-container {
+        width: auto;
+        margin: 20px;
+    }
+    label[for="url-input"] {
+        width: 100% !important;
+    }
+    label[for="url-input"] input {
+        font-size: 1rem;
+    }
 }
