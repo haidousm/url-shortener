@@ -1,4 +1,5 @@
 const express = require("express");
+const rateLimit = require("express-rate-limit");
 const dotenv = require("dotenv").config();
 
 const mongoose = require("mongoose");
@@ -7,6 +8,11 @@ const ShortUrl = require("./models/shortUrl");
 const app = express();
 app.use(express.static("public"));
 app.use(express.json());
+const limiter = rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 20,
+});
+app.use(limiter);
 
 const mongoUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.x4n3c.mongodb.net/url_shortener?retryWrites=true&w=majority`;
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
