@@ -1,8 +1,3 @@
-const withHttp = (url) =>
-    url.replace(/^(?:(.*:)?\/\/)?(.*)/i, (match, schemma, nonSchemmaUrl) =>
-        schemma ? match : `http://${nonSchemmaUrl}`
-    );
-
 const copyToClipboard = (str) => {
     const el = document.createElement("textarea");
     el.value = str;
@@ -12,9 +7,15 @@ const copyToClipboard = (str) => {
     document.body.removeChild(el);
 };
 
+$(".url-input").on("keyup", function (e) {
+    if (e.key === "Enter" || e.keyCode === 13) {
+        jQuery(".shorten-btn").click();
+    }
+});
+
 jQuery(".shorten-btn").on("click", function () {
     let full = jQuery(".url-input").val();
-    full = withHttp(full);
+
     jQuery.ajax({
         type: "POST",
         url: "/shorten",
