@@ -20,7 +20,10 @@ $(".shorten-btn").on("click", function (e) {
             success: function (res) {
                 $(".url-input").val(window.location.origin + "/" + res.short);
                 $(".url-input").attr("readonly", true);
-                $(".url-input").addClass("is-link");
+                $(".url-input").css({
+                    "text-decoration": "underline",
+                    cursor: "pointer",
+                });
                 $(".url-input").on("click", function () {
                     location.href = $(".url-input").val();
                 });
