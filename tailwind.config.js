@@ -1,6 +1,5 @@
 module.exports = {
-    purge: { enabled: true, content: ["./src/public/**/*.html"] },
-    darkMode: false,
+    content: ["**/*.html"],
     theme: {
         extend: {
             colors: {
