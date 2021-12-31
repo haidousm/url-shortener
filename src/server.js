@@ -1,21 +1,25 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
-const dotenv = require("dotenv").config();
 
-const mongoose = require("mongoose");
+const connectDB = require("./config/db");
+
 const ShortUrl = require("./models/shortUrl");
 
+const path = require("path");
+require("dotenv").config({
+    path: path.resolve(__dirname, "./config/config.env"),
+});
+
 const app = express();
-app.use(express.static("public"));
+app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.json());
 const limiter = rateLimit({
     windowMs: 60 * 60 * 1000,
-    max: 20,
+    max: 15,
 });
 app.use(limiter);
 
-const mongoUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.x4n3c.mongodb.net/url_shortener?retryWrites=true&w=majority`;
-mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
+connectDB();
 
 app.post("/shorten", async (req, res) => {
     let url = req.body.url;
@@ -35,9 +39,9 @@ app.get("/:short", async (req, res) => {
     let full = shortUrl.full;
     const withHttp = (url) =>
         url.replace(/^(?:(.*:)?\/\/)?(.*)/i, (match, schemma, nonSchemmaUrl) =>
-            schemma ? match : `http://${nonSchemmaUrl}`
+            schemma ? match : `https://${nonSchemmaUrl}`
         );
     res.redirect(withHttp(full));
 });
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 3000);
