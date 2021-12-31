@@ -10,3 +10,5 @@ WORKDIR /src/app
 COPY --from=compile-tailwindcss /src/app .
 
 CMD ["yarn", "start"]
+
+EXPOSE 3000
