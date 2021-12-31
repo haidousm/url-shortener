@@ -15,7 +15,7 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.json());
 const limiter = rateLimit({
     windowMs: 60 * 60 * 1000,
-    max: 20,
+    max: 15,
 });
 app.use(limiter);
 
@@ -39,7 +39,7 @@ app.get("/:short", async (req, res) => {
     let full = shortUrl.full;
     const withHttp = (url) =>
         url.replace(/^(?:(.*:)?\/\/)?(.*)/i, (match, schemma, nonSchemmaUrl) =>
-            schemma ? match : `http://${nonSchemmaUrl}`
+            schemma ? match : `https://${nonSchemmaUrl}`
         );
     res.redirect(withHttp(full));
 });

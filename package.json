@@ -5,7 +5,8 @@
     "main": "server.js",
     "scripts": {
         "start": "node src/server.js",
-        "dev": "nodemon src/server.js"
+        "dev": "nodemon src/server.js",
+        "build-css": "yarn tailwindcss -o public/assets/styles/tailwind.css"
     },
     "repository": "git+https://github.com/haidousm/url-shortener.git",
     "author": "Moussa Haidous",
