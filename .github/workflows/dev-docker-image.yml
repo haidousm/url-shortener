@@ -1,0 +1,27 @@
+name: Build  Dev. Docker Image
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+
+  docker:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build the Docker Image
+      run: docker build . --file Dockerfile --tag haidousm/url-shortener:SNAPSHOT
+    - name: Push the Docker Image to DockerHub
+      run: |
+        docker push haidousm/url-shortener:SNAPSHOT
+      
