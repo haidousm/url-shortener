@@ -10,12 +10,13 @@ app.use(express.static("public"));
 app.use(express.json());
 const limiter = rateLimit({
     windowMs: 60 * 60 * 1000,
-    max: 20,
+    max: 15,
 });
 app.use(limiter);
 
 const mongoUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.x4n3c.mongodb.net/url_shortener?retryWrites=true&w=majority`;
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set("useCreateIndex", true);
 
 app.post("/shorten", async (req, res) => {
     let url = req.body.url;
@@ -35,7 +36,7 @@ app.get("/:short", async (req, res) => {
     let full = shortUrl.full;
     const withHttp = (url) =>
         url.replace(/^(?:(.*:)?\/\/)?(.*)/i, (match, schemma, nonSchemmaUrl) =>
-            schemma ? match : `http://${nonSchemmaUrl}`
+            schemma ? match : `https://${nonSchemmaUrl}`
         );
     res.redirect(withHttp(full));
 });

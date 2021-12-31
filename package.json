@@ -4,7 +4,8 @@
   "description": "a url shortener",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build-css": "npx tailwindcss -o public/assets/styles/tailwind.css"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,14 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
     "mongoose": "^5.12.14",
-    "shortid": "^2.2.16",
-    "express-rate-limit": "^5.2.6"
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "autoprefixer": "^10.2.6",
+    "nodemon": "^2.0.7",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.2"
   }
 }
