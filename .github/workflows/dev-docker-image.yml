@@ -28,7 +28,7 @@ jobs:
     - name: Build the Docker Image
       env: 
         MONGO_URI: ${{ secrets.MONGO_URI }}
-      run: docker build . --file Dockerfile --tag haidousm/url-shortener:SNAPSHOT --build-arg MONGO_URI=$MONGO_URI
+      run: docker build . --file Dockerfile --tag haidousm/url-shortener:SNAPSHOT --build-arg MONGO_URI=$MONGO_URI --build-arg REDIRECT_URL="https://haidousm.com"
     - name: Push the Docker Image to DockerHub
       run: |
         docker push haidousm/url-shortener:SNAPSHOT
