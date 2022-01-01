@@ -9,8 +9,11 @@ LABEL Description="haido.us"
 WORKDIR /src/app
 COPY --from=compile-tailwindcss /src/app .
 
+ENV NODE_ENV production
+ENV PORT 3000
+
+ENV MONGO_URI ${MONGO_URI}
+
 CMD ["yarn", "start"]
 
 EXPOSE 3000
-
-# TODO: get mongodb env vars
