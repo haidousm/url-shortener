@@ -3,7 +3,7 @@ WORKDIR /src/app
 COPY . .
 RUN yarn install && yarn build-css
 
-FROM mhart/alpine-node:8
+FROM mhart/alpine-node:16
 LABEL Maintainer="Moussa Haidous <moussa@haidousm.com>"
 LABEL Description="haido.us"
 WORKDIR /src/app
