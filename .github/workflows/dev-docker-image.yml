@@ -5,6 +5,12 @@ on:
     branches:
       - 'main'
   workflow_dispatch:
+    inputs:
+      redirectUrl:
+        default: 'https://haidousm.com'
+        description: 'URL to redirect to in case of a 404 short'
+        required: true
+
 
 jobs:
 
