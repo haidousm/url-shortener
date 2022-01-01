@@ -22,6 +22,6 @@ app.use(express.json());
 
 app.use("/", require("./routes/index"));
 app.get("*", (req, res) => {
-    res.redirect("https://haidousm.com");
+    res.redirect(process.env.REDIRECT_URL);
 });
 app.listen(process.env.PORT || 3000);

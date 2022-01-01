@@ -17,7 +17,7 @@ router.post("/shorten", async (req, res) => {
 router.get("/:short", async (req, res) => {
     let short = req.params.short;
     let shortUrl = await ShortUrl.findOne({ short: short });
-    if (shortUrl == null) return res.redirect("https://haidousm.com");
+    if (shortUrl == null) return res.redirect(process.env.REDIRECT_URL);
     let full = shortUrl.full;
     const withHttp = (url) =>
         url.replace(/^(?:(.*:)?\/\/)?(.*)/i, (match, schema, nonSchemaUrl) =>
