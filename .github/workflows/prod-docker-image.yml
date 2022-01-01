@@ -23,6 +23,7 @@ jobs:
       env: 
         MONGO_URI: ${{ secrets.MONGO_URI }}
       run: docker build . --file Dockerfile --tag haidousm/url-shortener:latest --tag haidousm/url-shortener:${GITHUB_REF##*/} --build-arg MONGO_URI=$MONGO_URI
+    - name: Push the Docker Image to DockerHub
       run: |
         docker push haidousm/url-shortener:${GITHUB_REF##*/}
         docker push haidousm/url-shortener:latest
