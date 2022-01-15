@@ -21,12 +21,7 @@
     </head>
 
     <body
-        class="
-            bg-black bg-opacity-75
-            font-mac-terminal
-            flex flex-col
-            min-h-screen
-        "
+        class="bg-black bg-opacity-75 font-mac-terminal flex flex-col min-h-screen"
     >
         <div class="container mx-auto text-center mt-16">
             <h1 class="text-white text-6xl">haido.us</h1>
@@ -34,63 +29,23 @@
 
         <div class="container mx-auto flex justify-center font-mac-terminal">
             <div
-                class="
-                    terminal-container
-                    w-11/12
-                    md:w-8/12
-                    lg:w-6/12
-                    h-24
-                    my-28
-                    bg-mac-gray-30
-                    rounded-md
-                    border border-mac-gray-74
-                    shadow-xl-heavy
-                    overflow-hidden
-                "
+                class="terminal-container w-11/12 md:w-8/12 lg:w-6/12 h-24 my-28 bg-mac-gray-30 rounded-md border border-mac-gray-74 shadow-xl-heavy overflow-hidden"
             >
                 <div class="py-1 rounded-t-md bg-mac-gray-44 grid grid-cols-3">
                     <div class="flex items-center">
                         <button
-                            class="
-                                w-3
-                                h-3
-                                rounded-full
-                                ml-2
-                                mr-1
-                                bg-red-500
-                                hover:bg-red-700
-                            "
+                            class="w-3 h-3 rounded-full ml-2 mr-1 bg-red-500 hover:bg-red-700"
                             onclick="window.location.href='https://haidousm.com/';"
                         ></button>
                         <button
-                            class="
-                                w-3
-                                h-3
-                                rounded-full
-                                m-1
-                                bg-yellow-500
-                                hover:bg-yellow-700
-                            "
+                            class="w-3 h-3 rounded-full m-1 bg-yellow-500 hover:bg-yellow-700"
                         ></button>
                         <button
-                            class="
-                                w-3
-                                h-3
-                                rounded-full
-                                m-1
-                                bg-green-600
-                                hover:bg-green-700
-                            "
+                            class="w-3 h-3 rounded-full m-1 bg-green-600 hover:bg-green-700"
                         ></button>
                     </div>
                     <div
-                        class="
-                            text-center
-                            flex
-                            text-mac-gray-176
-                            items-center
-                            justify-center
-                        "
+                        class="text-center flex text-mac-gray-176 items-center justify-center"
                     >
                         <p class="text-sm md:text-md">url shortener</p>
                     </div>
@@ -98,45 +53,17 @@
                 <div class="w-full h-4/6 p-5 text-white flex items-center">
                     <input
                         type="text"
-                        class="
-                            url-input
-                            w-full
-                            h-full
-                            bg-transparent
-                            focus:outline-none
-                            text-xl
-                            placeholder-mac-gray-117
-                        "
+                        class="url-input w-full h-full bg-transparent focus:outline-none text-xl placeholder-mac-gray-117"
                         placeholder="Enter your url"
                     />
                     <button
-                        class="
-                            shorten-btn
-                            outline-none
-                            p-2
-                            flex
-                            items-center
-                            rounded-md
-                            bg-green-700
-                            transform
-                            hover:scale-105 hover:-translate-y-1
-                            focus:outline-none focus:translate-y-1
-                            text-xl
-                            border border-white border-opacity-25
-                        "
+                        class="shorten-btn outline-none p-2 flex items-center rounded-md bg-green-700 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:translate-y-1 text-xl border border-white border-opacity-25"
                     >
                         Shorten
                     </button>
                 </div>
             </div>
         </div>
-
-        <script
-            src="https://code.jquery.com/jquery-3.6.0.js"
-            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script src="assets/js/shortener.js"></script>
     </body>
 </html>
