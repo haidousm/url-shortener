@@ -12,9 +12,6 @@ COPY --from=compile-tailwindcss /src/app .
 ENV NODE_ENV production
 ENV PORT 3000
 
-ARG MONGO_URI ""
-ENV MONGO_URI ${MONGO_URI}
-
 ARG REDIRECT_URL "https://haidousm.com"
 ENV REDIRECT_URL ${REDIRECT_URL}
 
